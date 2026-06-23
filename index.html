@@ -16,7 +16,7 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 6%;
     }
-    .nav-logo { color: #ffe600; font-weight: 900; font-size: 18px; letter-spacing: 1px; padding: 16px 0; white-space: nowrap; }
+    .nav-logo { color: #ffe600; font-weight: 900; font-size: 18px; letter-spacing: 1px; padding: 16px 0; white-space: nowrap; text-decoration: none; }
     .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
     .nav-links a {
       color: #fff; text-decoration: none; font-weight: 700; font-size: 14px;
@@ -161,7 +161,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">🏰 Pop Art × Château</div>
+    <a href="#accueil" class="nav-logo">🏰 Pop Art × Château</a>
     <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
