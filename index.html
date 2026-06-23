@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Exposition Pop Art au Château de la Napoule — quand l'énergie colorée du pop art rencontre le charme historique d'une forteresse médiévale de la Côte d'Azur." />
+  <title>Pop Art au Château de la Napoule</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, Helvetica, sans-serif; background: #fff7db; color: #111; }
+
+    /* HERO */
+    .hero { min-height: 90vh; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 40px; padding: 60px 8%; background: radial-gradient(circle at 20% 20%, #ff2f92 0 12%, transparent 13%), radial-gradient(circle at 80% 30%, #1db4ff 0 10%, transparent 11%), linear-gradient(135deg, #ffe600 0%, #ff7a00 100%); border-bottom: 8px solid #111; }
+    .badge { display: inline-block; background: #111; color: white; padding: 10px 18px; transform: rotate(-3deg); font-weight: 800; letter-spacing: 1px; margin-bottom: 25px; }
+    h1 { font-size: clamp(48px, 8vw, 110px); line-height: .88; text-transform: uppercase; letter-spacing: -4px; text-shadow: 5px 5px 0 #fff, 9px 9px 0 #111; margin-bottom: 25px; }
+    .hero p { font-size: 22px; max-width: 580px; font-weight: 700; line-height: 1.35; }
+    .hero-img { border: 8px solid #111; box-shadow: 18px 18px 0 #ff2f92; transform: rotate(2deg); overflow: hidden; background: #ddd; }
+    .hero-img img { width: 100%; height: 540px; object-fit: cover; display: block; filter: saturate(1.3) contrast(1.05); }
+
+    /* IMAGE FALLBACK si image indisponible */
+    .img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #ff2f92, #1db4ff); color: white; font-size: 18px; font-weight: 800; text-align: center; padding: 20px; }
+
+    /* SECTIONS */
+    section { padding: 70px 8%; }
+    .intro { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: center; background: #fff; border-bottom: 8px solid #111; }
+    .intro h2, .posts h2, .gallery h2 { font-size: clamp(34px, 4vw, 64px); text-transform: uppercase; line-height: .95; margin-bottom: 20px; }
+    .intro p { font-size: 20px; line-height: 1.5; margin-bottom: 16px; }
+    .pop-card { background: #1db4ff; border: 6px solid #111; padding: 28px; box-shadow: 12px 12px 0 #ffe600; font-size: 24px; font-weight: 800; }
+
+    /* POINTS */
+    .points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; background: #111; }
+    .point { background: #fff; border: 6px solid #111; padding: 28px; min-height: 210px; box-shadow: 8px 8px 0 #ff2f92; }
+    .point:nth-child(2) { box-shadow: 8px 8px 0 #1db4ff; }
+    .point:nth-child(3) { box-shadow: 8px 8px 0 #ffe600; }
+    .point span { font-size: 54px; font-weight: 900; }
+    .point h3 { font-size: 28px; margin: 10px 0; text-transform: uppercase; }
+    .point p { font-size: 17px; line-height: 1.4; }
+
+    /* GALLERY */
+    .gallery { background: #ffe600; border-top: 8px solid #111; border-bottom: 8px solid #111; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 25px; }
+    .photo { border: 6px solid #111; background: white; box-shadow: 10px 10px 0 #111; overflow: hidden; }
+    .photo img { width: 100%; height: 280px; object-fit: cover; display: block; filter: saturate(1.25); }
+    .photo p { padding: 14px; font-weight: 800; }
+
+    /* POSTS */
+    .posts { background: #fff7db; }
+    .post-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .post { background: white; border: 6px solid #111; padding: 24px; position: relative; }
+    .post:before { content:"POST"; position: absolute; top: -18px; right: 18px; background:#ff2f92; color:white; padding: 6px 12px; font-weight: 900; border:4px solid #111; }
+    .post h3 { font-size: 24px; margin-bottom: 14px; }
+    .post p { font-size: 18px; line-height: 1.45; }
+
+    /* CTA */
+    .cta { text-align: center; background: #ff2f92; color: white; border-top: 8px solid #111; }
+    .cta h2 { font-size: clamp(38px, 6vw, 80px); text-transform: uppercase; text-shadow: 5px 5px 0 #111; margin-bottom: 20px; }
+    .cta p { font-size: 22px; font-weight: 700; }
+
+    /* FOOTER */
+    footer { background: #111; color: #fff; text-align: center; padding: 28px 8%; font-size: 15px; letter-spacing: 1px; }
+    footer span { color: #ffe600; font-weight: 800; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero, .intro, .points, .grid, .post-list { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -2px; }
+      .hero-img img { height: 300px; }
+      .hero-img { transform: rotate(0deg); }
+      .photo img { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div>
+      <div class="badge">EXPOSITION POP ART</div>
+      <h1>Pop Art<br>au Château</h1>
+      <p>Quand l'énergie colorée du pop art rencontre le charme historique du Château de la Napoule, le patrimoine devient une scène artistique vivante.</p>
+    </div>
+    <div class="hero-img">
+      <!-- Image Wikimedia corrigée avec l'URL directe -->
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Chateau_La_Napoule.jpg/800px-Chateau_La_Napoule.jpg"
+        alt="Vue du Château de la Napoule depuis la mer"
+        onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'img-placeholder\'>🏰 Château de la Napoule</div>'"
+      />
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="pop-card">Un lieu chargé d'histoire, transformé en terrain de jeu créatif.</div>
+    <div>
+      <h2>Patrimoine x couleurs</h2>
+      <p>Ancienne forteresse médiévale restaurée par Henry et Marie Clews, le Château de la Napoule est déjà lié à l'art et à la création.</p>
+      <p>Avec une exposition pop art, le lieu prend une nouvelle dimension : plus moderne, plus visuelle, plus accessible.</p>
+    </div>
+  </section>
+
+  <section class="points" aria-label="Objectifs de l'exposition">
+    <div class="point">
+      <span aria-hidden="true">01</span>
+      <h3>Valoriser le lieu</h3>
+      <p>Mettre en lumière le château avec une approche artistique moderne et originale.</p>
+    </div>
+    <div class="point">
+      <span aria-hidden="true">02</span>
+      <h3>Attirer le public</h3>
+      <p>Créer un contraste fort entre architecture historique et univers pop art.</p>
+    </div>
+    <div class="point">
+      <span aria-hidden="true">03</span>
+      <h3>Créer du partage</h3>
+      <p>Offrir une expérience visuelle forte, idéale pour les réseaux sociaux.</p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2>Le château en images</h2>
+    <div class="grid">
+      <div class="photo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/1016_Ch%C3%A2teau_de_la_Napoule_at_sunset_Photo_by_Giles_Laurent.jpg/800px-1016_Ch%C3%A2teau_de_la_Napoule_at_sunset_Photo_by_Giles_Laurent.jpg"
+          alt="Château de la Napoule au coucher du soleil"
+          onerror="this.src='https://placehold.co/800x280/ff2f92/ffffff?text=Château+au+coucher+du+soleil'"
+        />
+        <p>Un décor spectaculaire face à la mer.</p>
+      </div>
+      <div class="photo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Ch%C3%A2teau_de_la_Napoule%2C_c%C3%B4te_d%27azur.JPG/800px-Ch%C3%A2teau_de_la_Napoule%2C_c%C3%B4te_d%27azur.JPG"
+          alt="Entrée du Château de la Napoule"
+          onerror="this.src='https://placehold.co/800x280/1db4ff/ffffff?text=Entrée+du+château'"
+        />
+        <p>Une entrée chargée d'histoire.</p>
+      </div>
+      <div class="photo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Castle_in_La_Napoule.jpg/800px-Castle_in_La_Napoule.jpg"
+          alt="Le château de La Napoule vu de l'extérieur"
+          onerror="this.src='https://placehold.co/800x280/ffe600/111111?text=Château+de+La+Napoule'"
+        />
+        <p>Un lieu parfait pour créer un choc visuel pop.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="posts">
+    <h2>Idées de posts</h2>
+    <div class="post-list">
+      <div class="post">
+        <h3>Post 1</h3>
+        <p>Le Château de la Napoule a été restauré par un couple d'artistes. Aujourd'hui, il continue d'inspirer… version pop art.</p>
+      </div>
+      <div class="post">
+        <h3>Post 2</h3>
+        <p>Entre mer, pierre et couleurs vives, le pop art vient réveiller l'histoire du Château de la Napoule.</p>
+      </div>
+      <div class="post">
+        <h3>Post 3</h3>
+        <p>Un château, des œuvres, des couleurs : quand le patrimoine devient une expérience pop et contemporaine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Un château. Une expo. Un impact.</h2>
+    <p>Une campagne visuelle forte pour faire rayonner le lieu autrement.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 — <span>Pop Art au Château de la Napoule</span> · Côte d'Azur, France</p>
+  </footer>
+
+</body>
+</html>
